@@ -9,8 +9,10 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import MailIcon from "@mui/icons-material/Mail";
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = () => {
+  const navigate = useNavigate();
   return (
     <Drawer
       style={{ height: "100%" }}
@@ -37,15 +39,18 @@ const LeftSidebar = () => {
       <Divider />
       <List>
         {["Home", "Inbox"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem
+            key={text}
+            disablePadding
+            onClick={
+              index === 0 ? () => navigate("/") : () => navigate("/about")
+            }
+          >
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText
-                primary={text}
-                onClick={index % 2 === 0 ? () => {} : () => {}}
-              />
+              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}

@@ -1,12 +1,20 @@
 import React from "react";
 import AppLayout from "./Layout/AppLayout/AppLayout";
+import Home from "./Pages/Home";
+import Inbox from "./Pages/Inbox";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <AppLayout>
-      <p>he;lo</p>
-    </AppLayout>
+    <Router>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" exact element={<Inbox />} />
+        </Routes>
+      </AppLayout>
+    </Router>
   );
-}
+};
 
 export default App;
