@@ -1,0 +1,24 @@
+.HomePage {
+  padding: 1rem;
+}
+.HomePage .HPTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.HomePage .HPTitle .HPTButton {
+  text-transform: none;
+}
+.HomePage .HPTitle .HPTText {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.HomePage .HPBody {
+  margin: 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  padding: 1.6rem 1rem;
+}
+
+/*  */
+
+/*  */

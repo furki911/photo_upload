@@ -1,0 +1,45 @@
+.DialogBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DialogBackdrop .MainDialog {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.DialogBackdrop .MainDialog .MainDialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+  padding: 10px 1rem;
+  border-bottom: 3px solid rgb(0 0 0 / 12%);
+}
+.DialogBackdrop .MainDialog .MainDialogHeader .MainDialogHeader__Title span {
+  font-size: 0.86rem;
+  color: #959595;
+}
+
+.MainDialogFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+  padding: 10px 1rem;
+  border-top: 3px solid rgb(0 0 0 / 12%);
+}
