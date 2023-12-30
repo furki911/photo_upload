@@ -1,6 +1,6 @@
 import { Button, Stack } from "@mui/material";
 
-const UploadFileDialogFooter = ({ onClose, onSave }) => {
+const EditFileDialogFooter = ({ onClose, onSave }) => {
   return (
     <div className="MainDialogFooter">
       <Stack direction="row" justifyContent="space-between" width={"100%"}>
@@ -37,4 +37,4 @@ const UploadFileDialogFooter = ({ onClose, onSave }) => {
   );
 };
 
-export default UploadFileDialogFooter;
+export default EditFileDialogFooter;

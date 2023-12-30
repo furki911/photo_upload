@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const UploadFileDialogHeader = ({ onClose }) => (
+const EditFileDialogHeader = ({ onClose }) => (
   <div className="MainDialogHeader">
     <p className="MainDialogHeader__Title">
       Edit Bill <span>(Click on the image to annotate)</span>
@@ -17,4 +17,4 @@ const UploadFileDialogHeader = ({ onClose }) => (
   </div>
 );
 
-export default UploadFileDialogHeader;
+export default EditFileDialogHeader;
