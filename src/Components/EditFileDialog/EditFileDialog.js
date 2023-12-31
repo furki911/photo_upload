@@ -4,6 +4,7 @@ import EditFileDialogFooter from "./EditFileDialogFooter";
 import EditFileDialogHeader from "./EditFileDialogHeader";
 import { getFileExtensionFromBase64 } from "../../Utils/Conversions";
 import "./style.css";
+import PdfView from "../PdfView/PdfView";
 
 const EditFileDialog = (props) => {
   const { open, onClose, handleImageChange, saveImage, selectedFile } = props;
@@ -21,7 +22,7 @@ const EditFileDialog = (props) => {
           <EditFileDialogHeader onClose={onClose} />
 
           {selectedFileType === "pdf" ? (
-            <>PDF View</>
+            <PdfView file={selectedFile} />
           ) : (
             <div style={{ padding: "44px 20px 40px" }}>
               <BillEdit

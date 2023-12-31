@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "react-resizable";
 import { IconButton } from "@mui/material";
+import { Stack } from "@mui/system";
 import CloseIcon from "@mui/icons-material/Close";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import ExpandIcon from "@mui/icons-material/Expand";
 import "react-resizable/css/styles.css";
+import PdfView from "../PdfView/PdfView";
 import "./style.css";
-import { Stack } from "@mui/system";
+import { getFileExtensionFromBase64 } from "../../Utils/Conversions";
 
 const DraggableResizableModal = ({ data, onClose }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -92,18 +94,26 @@ const DraggableResizableModal = ({ data, onClose }) => {
           >
             <div
               className="draggable-content"
-              style={{ width: `${size.width}px`, height: `${size.height}px` }}
+              style={{
+                width: `${size.width}px`,
+                height: `${size.height}px`,
+                overflow: "hidden",
+              }}
             >
-              <img
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  maxHeight: "74vh",
-                  objectFit: "contain",
-                }}
-                alt="FileImg"
-                src={data?.file}
-              />
+              {getFileExtensionFromBase64(data?.file) === "pdf" ? (
+                <PdfView file={data?.file} />
+              ) : (
+                <img
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    maxHeight: "74vh",
+                    objectFit: "contain",
+                  }}
+                  alt="FileImg"
+                  src={data?.file}
+                />
+              )}
             </div>
           </Resizable>
         )}
