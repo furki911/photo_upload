@@ -3,33 +3,13 @@ import Bill from "../../Assets/Images/Bill_1.png";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import File from "../../Components/File/File";
-import EditFileDialog from "../../Components/EditFileDialog/EditFileDialog";
+import UploadFileDialog from "../../Components/UploadFileDialog/UploadFileDialog";
 import "./style.css";
 
 const Home = () => {
+  const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(Bill);
   const [savedImages, setUploadedImages] = useState([]);
-  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
-
-  const openEditDialog = () => {
-    setIsEditDialogOpen(true);
-  };
-
-  const closeEditDialog = () => {
-    setIsEditDialogOpen(false);
-  };
-
-  const handleImageChange = (file) => {
-    setSelectedImage(file);
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const imageData = e.target.result;
-        setSelectedImage(imageData);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const saveImage = () => {
     // Currently Logic Applied to Save it to local storage
@@ -62,7 +42,7 @@ const Home = () => {
       return (
         <>
           {savedImages.map((item, index) => (
-            <File data={item} id={index} key={index} />
+            <File data={item} key={index} />
           ))}
         </>
       );
@@ -71,6 +51,7 @@ const Home = () => {
     }
   }, [savedImages]);
 
+  //
   return (
     <>
       <div className="HomePage">
@@ -81,7 +62,9 @@ const Home = () => {
             className="HPTButton"
             variant="outlined"
             startIcon={<AddIcon />}
-            onClick={openEditDialog}
+            onClick={() => {
+              setIsUploadOpen(true);
+            }}
           >
             Upload New
           </Button>
@@ -92,12 +75,11 @@ const Home = () => {
         </div>
       </div>
 
-      <EditFileDialog
-        open={isEditDialogOpen}
-        onClose={closeEditDialog}
-        handleImageChange={handleImageChange}
+      <UploadFileDialog
+        open={isUploadOpen}
+        setSelectedImage={setSelectedImage}
+        onClose={() => setIsUploadOpen(false)}
         saveImage={saveImage}
-        selectedImage={selectedImage}
       />
     </>
   );

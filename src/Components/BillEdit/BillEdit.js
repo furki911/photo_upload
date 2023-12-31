@@ -57,7 +57,7 @@ const BillEdit = ({ handleImageChange, selectedImage }) => {
       <div style={{ width: "400px" }}>
         <img
           ref={sampleImageRef}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%", height: "100%", maxHeight: "74vh" }}
           alt="bill"
           src={selectedImage}
         />
