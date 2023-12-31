@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from "react";
 import { dataURLtoFile } from "../../Utils/Conversions";
 import "./style.css";
 
-const BillEdit = ({ handleImageChange, selectedImage }) => {
+const BillEdit = ({ handleImageChange, selectedFile }) => {
   const sampleImageRef = useRef(null);
 
   const saveEditedImage = useCallback(
@@ -59,7 +59,7 @@ const BillEdit = ({ handleImageChange, selectedImage }) => {
           ref={sampleImageRef}
           style={{ width: "100%", height: "100%", maxHeight: "74vh" }}
           alt="bill"
-          src={selectedImage}
+          src={selectedFile}
         />
       </div>
     </>

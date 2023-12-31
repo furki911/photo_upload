@@ -5,7 +5,7 @@ import EditFileDialogHeader from "./EditFileDialogHeader";
 import "./style.css";
 
 const EditFileDialog = (props) => {
-  const { open, onClose, handleImageChange, saveImage, selectedImage } = props;
+  const { open, onClose, handleImageChange, saveImage, selectedFile } = props;
 
   if (open)
     return (
@@ -20,7 +20,7 @@ const EditFileDialog = (props) => {
 
           <div style={{ padding: "44px 20px 40px" }}>
             <BillEdit
-              selectedImage={selectedImage}
+              selectedFile={selectedFile}
               handleImageChange={(file) => {
                 handleImageChange(file);
               }}
@@ -30,7 +30,7 @@ const EditFileDialog = (props) => {
           <EditFileDialogFooter
             onSave={saveImage}
             onClose={onClose}
-            selectedImage={selectedImage}
+            selectedFile={selectedFile}
           />
         </div>
       </div>

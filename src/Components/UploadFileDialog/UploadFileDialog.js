@@ -21,7 +21,7 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
-const UploadFileDialog = ({ open, onClose, saveImage, setSelectedImage }) => {
+const UploadFileDialog = ({ open, onClose, saveImage, setselectedFile }) => {
   const [selectedFile, setSelectedFile] = React.useState(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = React.useState(false);
   const [cameraCapture, setCameraCapture] = React.useState(false);
@@ -38,7 +38,7 @@ const UploadFileDialog = ({ open, onClose, saveImage, setSelectedImage }) => {
         const reader = new FileReader();
         reader.onloadend = () => {
           setSelectedFile(reader.result);
-          setSelectedImage(reader.result);
+          setselectedFile(reader.result);
         };
         reader.readAsDataURL(file);
       }
@@ -126,7 +126,7 @@ const UploadFileDialog = ({ open, onClose, saveImage, setSelectedImage }) => {
         }}
         handleImageChange={handleFileChange}
         saveImage={saveImage}
-        selectedImage={selectedFile}
+        selectedFile={selectedFile}
       />
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Bill from "../../Assets/Images/Bill_1.png";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import File from "../../Components/File/File";
@@ -8,17 +7,17 @@ import "./style.css";
 
 const Home = () => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(Bill);
+  const [selectedFile, setselectedFile] = useState();
   const [savedImages, setUploadedImages] = useState([]);
 
   const saveImage = () => {
     // Currently Logic Applied to Save it to local storage
     let savedImages = JSON.parse(localStorage.getItem("savedImages")) || [];
 
-    if (selectedImage) {
+    if (selectedFile) {
       localStorage.setItem(
         "savedImages",
-        JSON.stringify([...savedImages, selectedImage])
+        JSON.stringify([...savedImages, selectedFile])
       );
     }
     getImages();
@@ -77,7 +76,7 @@ const Home = () => {
 
       <UploadFileDialog
         open={isUploadOpen}
-        setSelectedImage={setSelectedImage}
+        setselectedFile={setselectedFile}
         onClose={() => setIsUploadOpen(false)}
         saveImage={saveImage}
       />
