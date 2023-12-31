@@ -4,6 +4,7 @@ import { IconButton } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import PNGIcon from "../../Assets/Images/pngIcon.png";
 import JPGIcon from "../../Assets/Images/jpg.png";
+import PDFIcon from "../../Assets/Images/pdf.png";
 import "./style.css";
 
 const File = ({ data, handleFileView }) => {
@@ -26,6 +27,9 @@ const File = ({ data, handleFileView }) => {
       case "jpeg":
       case "JPG": {
         return <img alt="file_Image" src={JPGIcon} />;
+      }
+      case "pdf": {
+        return <img alt="file_Image" src={PDFIcon} />;
       }
       default:
         return <img alt="file_Image" src={PNGIcon} />;

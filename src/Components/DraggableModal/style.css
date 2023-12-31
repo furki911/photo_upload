@@ -1,4 +1,4 @@
-/* App.css */
+/* style.css */
 .draggable-modal {
   position: fixed;
   top: 20%;
@@ -7,6 +7,13 @@
   z-index: 999999;
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draggable-modal.minimized {
+  top: unset !important;
+  left: unset !important;
+  right: 0 !important;
+  bottom: 0 !important;
 }
 
 .draggable-header {
@@ -21,6 +28,11 @@
   border-bottom: 3px solid rgb(0 0 0 / 12%);
   cursor: move;
   background-color: #f1f1f1;
+}
+
+.draggable-header span {
+  font-size: 0.7rem;
+  color: #959595;
 }
 
 .draggable-content {
