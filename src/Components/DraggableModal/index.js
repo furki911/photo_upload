@@ -1,5 +1,4 @@
-// DraggableModal.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
 import ReactDOM from "react-dom";
 import { IconButton } from "@mui/material";
