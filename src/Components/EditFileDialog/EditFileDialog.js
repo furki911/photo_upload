@@ -2,10 +2,13 @@ import React from "react";
 import BillEdit from "../BillEdit/BillEdit";
 import EditFileDialogFooter from "./EditFileDialogFooter";
 import EditFileDialogHeader from "./EditFileDialogHeader";
+import { getFileExtensionFromBase64 } from "../../Utils/Conversions";
 import "./style.css";
+import PdfView from "../PdfView/PdfView";
 
 const EditFileDialog = (props) => {
-  const { open, onClose, handleImageChange, saveImage, selectedImage } = props;
+  const { open, onClose, handleImageChange, saveImage, selectedFile } = props;
+  const selectedFileType = getFileExtensionFromBase64(selectedFile);
 
   if (open)
     return (
@@ -18,19 +21,23 @@ const EditFileDialog = (props) => {
         >
           <EditFileDialogHeader onClose={onClose} />
 
-          <div style={{ padding: "44px 20px 40px" }}>
-            <BillEdit
-              selectedImage={selectedImage}
-              handleImageChange={(file) => {
-                handleImageChange(file);
-              }}
-            />
-          </div>
+          {selectedFileType === "pdf" ? (
+            <PdfView file={selectedFile} />
+          ) : (
+            <div style={{ padding: "44px 20px 40px" }}>
+              <BillEdit
+                selectedFile={selectedFile}
+                handleImageChange={(file) => {
+                  handleImageChange(file);
+                }}
+              />
+            </div>
+          )}
 
           <EditFileDialogFooter
             onSave={saveImage}
             onClose={onClose}
-            selectedImage={selectedImage}
+            selectedFile={selectedFile}
           />
         </div>
       </div>

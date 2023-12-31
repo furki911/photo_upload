@@ -1,24 +1,23 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Bill from "../../Assets/Images/Bill_1.png";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import File from "../../Components/File/File";
 import UploadFileDialog from "../../Components/UploadFileDialog/UploadFileDialog";
 import "./style.css";
 
-const Home = () => {
+const Home = ({ openFileViewModal }) => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(Bill);
+  const [selectedFile, setselectedFile] = useState();
   const [savedImages, setUploadedImages] = useState([]);
 
   const saveImage = () => {
     // Currently Logic Applied to Save it to local storage
     let savedImages = JSON.parse(localStorage.getItem("savedImages")) || [];
 
-    if (selectedImage) {
+    if (selectedFile) {
       localStorage.setItem(
         "savedImages",
-        JSON.stringify([...savedImages, selectedImage])
+        JSON.stringify([...savedImages, selectedFile])
       );
     }
     getImages();
@@ -37,19 +36,26 @@ const Home = () => {
     getImages();
   }, [getImages]);
 
+  const handleFileView = useCallback(
+    (file) => {
+      openFileViewModal(file);
+    },
+    [openFileViewModal]
+  );
+
   const savedFiles = useMemo(() => {
     if (savedImages.length) {
       return (
         <>
           {savedImages.map((item, index) => (
-            <File data={item} key={index} />
+            <File data={item} handleFileView={handleFileView} key={index} />
           ))}
         </>
       );
     } else {
       return <p style={{ textAlign: "center" }}>No Uploaded Files!</p>;
     }
-  }, [savedImages]);
+  }, [handleFileView, savedImages]);
 
   //
   return (
@@ -77,7 +83,7 @@ const Home = () => {
 
       <UploadFileDialog
         open={isUploadOpen}
-        setSelectedImage={setSelectedImage}
+        setselectedFile={setselectedFile}
         onClose={() => setIsUploadOpen(false)}
         saveImage={saveImage}
       />

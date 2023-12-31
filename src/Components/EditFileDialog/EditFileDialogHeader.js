@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 const EditFileDialogHeader = ({ onClose }) => (
   <div className="MainDialogHeader">
     <p className="MainDialogHeader__Title">
-      Edit Bill <span>(Click on the image to annotate)</span>
+      Edit Bill <span>(Click on the Bill to annotate)</span>
     </p>
     <IconButton
       onClick={onClose}

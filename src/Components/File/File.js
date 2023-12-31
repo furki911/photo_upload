@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
+import { dataURLtoFile } from "../../Utils/Conversions";
+import { IconButton } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import PNGIcon from "../../Assets/Images/pngIcon.png";
 import JPGIcon from "../../Assets/Images/jpg.png";
-import { dataURLtoFile } from "../../Utils/Conversions";
+import PDFIcon from "../../Assets/Images/pdf.png";
 import "./style.css";
 
-const File = ({ data }) => {
+const File = ({ data, handleFileView }) => {
   const [currentfileDetail, setCurrentFileDetail] = useState();
 
   useEffect(() => {
@@ -25,6 +28,9 @@ const File = ({ data }) => {
       case "JPG": {
         return <img alt="file_Image" src={JPGIcon} />;
       }
+      case "pdf": {
+        return <img alt="file_Image" src={PDFIcon} />;
+      }
       default:
         return <img alt="file_Image" src={PNGIcon} />;
     }
@@ -39,6 +45,16 @@ const File = ({ data }) => {
           {(currentfileDetail?.size / (1024 * 1024)).toFixed(2)} Mb
         </p>
         <p className="FDStatus">Local Storage</p>
+      </div>
+      <div className="FDActions">
+        <IconButton
+          size="small"
+          onClick={() => {
+            handleFileView(data);
+          }}
+        >
+          <VisibilityIcon fontSize="small" />
+        </IconButton>
       </div>
     </div>
   );

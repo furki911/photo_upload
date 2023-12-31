@@ -10,7 +10,12 @@ const AppLayout = (props) => {
       </div>
       <div style={{ flex: "1", display: "flex", overflow: "hidden" }}>
         <LeftSidebar />
-        <div style={{ flex: "1", overflow: "hidden" }}>{props.children}</div>
+        <div
+          className="AppMainViewBody"
+          style={{ flex: "1", overflow: "hidden" }}
+        >
+          {props.children}
+        </div>
       </div>
     </div>
   );
