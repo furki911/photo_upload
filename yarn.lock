@@ -6777,6 +6777,11 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
+markerjs2@^2.31.4:
+  version "2.31.4"
+  resolved "https://registry.yarnpkg.com/markerjs2/-/markerjs2-2.31.4.tgz#2508373f4caa8c74b2c8debd39db1c5793fa115f"
+  integrity sha512-Xx/2969Uj1VdwFRMcvHlhMNqvFMwJwie8J6WQcj9NDEByD2CdLVxF/39w0rg4ILJbsafAVp0ZxywXiYG9wfI0Q==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
@@ -8216,6 +8221,11 @@ react-transition-group@^4.4.5:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-webcam@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-7.2.0.tgz#64141c4c7bdd3e956620500187fa3fcc77e1fd49"
+  integrity sha512-xkrzYPqa1ag2DP+2Q/kLKBmCIfEx49bVdgCCCcZf88oF+0NPEbkwYk3/s/C7Zy0mhM8k+hpdNkBLzxg8H0aWcg==
 
 react@^18.2.0:
   version "18.2.0"

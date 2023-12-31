@@ -8,9 +8,9 @@ const AppLayout = (props) => {
       <div style={{ height: "65px" }}>
         <Header />
       </div>
-      <div style={{ flex: "1", display: "flex" }}>
+      <div style={{ flex: "1", display: "flex", overflow: "hidden" }}>
         <LeftSidebar />
-        <div style={{ flex: "1" }}>{props.children}</div>
+        <div style={{ flex: "1", overflow: "hidden" }}>{props.children}</div>
       </div>
     </div>
   );

@@ -1,0 +1,32 @@
+.File {
+  display: flex;
+  gap: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 0.6rem 1rem;
+}
+.File:not(:last-child) {
+  margin-bottom: 0.6rem;
+}
+.File .FImg {
+  width: 3.5rem;
+}
+.File .FImg img {
+  width: 100%;
+  height: 100%;
+}
+.File .FDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.File .FDetails .FDName {
+  font-size: 1.1rem;
+}
+.File .FDetails .FDSize {
+  font-size: 0.8rem;
+  color: #6c6c6c;
+}
+.File .FDetails .FDStatus {
+  font-size: 0.8rem;
+  color: #00b100;
+}

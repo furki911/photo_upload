@@ -5,3 +5,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+.__markerjs2_ {
+  z-index: 99999 !important;
+}
+svg[clip-rule="evenodd"] {
+  display: none !important;
+}
