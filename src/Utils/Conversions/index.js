@@ -10,6 +10,10 @@ export function dataURLtoFile(dataURL, fileName) {
   });
 }
 
+export const getFileExtensionFromBase64 = (base64String) =>
+  (base64String?.match(/^data:[a-zA-Z0-9]+\/([a-zA-Z0-9-.+]+);base64,/) ||
+    [])[1] || null;
+
 export function dataURLtoBlob(dataURL) {
   const arr = dataURL.split(",");
   const mime = arr[0].match(/:(.*?);/)[1];
