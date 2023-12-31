@@ -1,0 +1,28 @@
+/* App.css */
+.draggable-modal {
+  position: fixed;
+  top: 20%;
+  left: 35%;
+  background-color: #ffffff;
+  z-index: 999999;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draggable-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+  padding: 10px 1rem;
+  border-bottom: 3px solid rgb(0 0 0 / 12%);
+  cursor: move;
+  background-color: #f1f1f1;
+}
+
+.draggable-content {
+  padding: 8px;
+}

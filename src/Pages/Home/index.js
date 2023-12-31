@@ -5,7 +5,7 @@ import File from "../../Components/File/File";
 import UploadFileDialog from "../../Components/UploadFileDialog/UploadFileDialog";
 import "./style.css";
 
-const Home = () => {
+const Home = ({ openFileViewModal }) => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [selectedFile, setselectedFile] = useState();
   const [savedImages, setUploadedImages] = useState([]);
@@ -36,19 +36,26 @@ const Home = () => {
     getImages();
   }, [getImages]);
 
+  const handleFileView = useCallback(
+    (file) => {
+      openFileViewModal(file);
+    },
+    [openFileViewModal]
+  );
+
   const savedFiles = useMemo(() => {
     if (savedImages.length) {
       return (
         <>
           {savedImages.map((item, index) => (
-            <File data={item} key={index} />
+            <File data={item} handleFileView={handleFileView} key={index} />
           ))}
         </>
       );
     } else {
       return <p style={{ textAlign: "center" }}>No Uploaded Files!</p>;
     }
-  }, [savedImages]);
+  }, [handleFileView, savedImages]);
 
   //
   return (
